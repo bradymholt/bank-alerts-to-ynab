@@ -1,14 +1,14 @@
-# Spending for YNAB
+# Bank Spending for YNAB
 
-This project allows spending to be imported into YNAB within seconds of it happening.
+This project routes spending alert emails from your bank to YNAB so your transactions appear in YNAB seconds after they occur.
 
 ## 3 minute setup
 
-Setup is easy and should take less than 3 minutes.  You will be cloning a Glitch project to act as a webhook server, creating a CloudMailin account which will give you an email address that will route to your webbook, and then telling your bank to send spending alerts to your CloudMailin email address.
+Setup is free, easy, and should take less than 3 minutes.  You will be cloning a Glitch project to act as a webhook server, creating a free CloudMailin account which will give you an email address that will route to your webbook, and then telling your bank to send spending alerts to your CloudMailin email address.
 
 ### Glitch
-1. Click "Remix This" button on the right side of this page
-1. Edit the .env of this project and specify a [YNAB API Access Token](https://api.youneedabudget.com/#personal-access-tokens) and a YNAB account ID (as long as you leave secrets in the `.env` file, they should be safe).  It should look something like this:
+1. Click "Remix This" button on the right side of [this page](https://glitch.com/edit/#!/shiny-secure).
+1. Edit the .env of this project and specify a [YNAB API Access Token](https://api.youneedabudget.com/#personal-access-tokens) (as long as you leave secrets in the `.env` file, [they should be safe](https://support.glitch.com/t/how-do-i-set-environment-variables/3921/2)).  It should look something like this:
 
         YNAB_ACCESS_TOKEN=e46942a2-86a6-FAKE-4931-b9a3-6c1d1c5c4b16
 
@@ -22,28 +22,60 @@ Setup is easy and should take less than 3 minutes.  You will be cloning a Glitch
 99198c6b4ba23c34c1f7@cloudmailin.net)
 
 ### Bank
-1. Go to your bank's website and setup spending alerts to be sent to your @cloudmailin.net address.  The "Alert Setup" section below  has information and screenshots for specific banks.
+1. Go to your bank's website and setup spending alerts to be sent to your @cloudmailin.net address.  The _Alert Setup_ section below  has information and screenshots for specific banks.
 
 Now, spend something and watch the transaction show up in YNAB within seconds.
 
 ## Supported Banks
-- Chase (Credit and Debit)
+- Chase
+- Bank of America
 - Citibank
+- Wells Fargo
 - Discover
 
 ### Alert Setup
 
 #### Chase
 
+##### Checking
+
 On the Profile & settings page:
 
-![chase-alert](https://cdn.glitch.com/11b0ff9a-c375-4ecb-93d2-c4c09b10d589%2FImage%202018-08-30%2005-39-05.png?1535625594616)
+![chase-alert](https://cdn.glitch.com/11b0ff9a-c375-4ecb-93d2-c4c09b10d589%2FImage%202018-08-30%2011-09-37.png?1535645420754
+)
 
-### Citibank
+##### Credit
+
+On the Profile & settings page:
+
+![chase-alert](https://cdn.glitch.com/11b0ff9a-c375-4ecb-93d2-c4c09b10d589%2FImage%202018-08-30%2011-11-20.png?1535645496352)
+
+#### Citibank
 
 On the Settings > Account Alerts page:
 
 ![citibank-alert](https://cdn.glitch.com/11b0ff9a-c375-4ecb-93d2-c4c09b10d589%2Fimage.png?1535625926570)
+
+#### Bank of America
+
+##### Credit
+
+On the Accounts > Alerts page:
+
+![bank-of-america-alert](https://cdn.glitch.com/11b0ff9a-c375-4ecb-93d2-c4c09b10d589%2FImage%202018-08-30%2009-48-38.png?1535640545376)
+
+#### Wells Fargo
+
+##### Checking
+
+On the Account Summary > Alerts page:
+![wells-fargo-alert](https://cdn.glitch.com/11b0ff9a-c375-4ecb-93d2-c4c09b10d589%2FImage%202018-08-30%2010-39-14.png?1535643840701)
+
+##### Credit
+
+On the Account Summary > Alerts page:
+
+![wells-fargo-alert](https://cdn.glitch.com/11b0ff9a-c375-4ecb-93d2-c4c09b10d589%2FImage%202018-08-30%2011-04-08.png?1535645082291)
 
 ## Going Further
 

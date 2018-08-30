@@ -12,7 +12,7 @@ module.exports = class {
     const milliunits_amount = amount.replace(/(\.|\,)/g,'').toString() + "0";
     if (!account_id){
       const default_account = await this.get_first_account();      
-      console.log(`Defaulting to '${default_account.name}' account`);
+      console.log(`Sending to '${default_account.name}' YNAB account by default`);
       account_id = default_account.id;
     }
     

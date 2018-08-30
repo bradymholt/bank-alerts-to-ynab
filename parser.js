@@ -13,6 +13,9 @@ const parsers = [
   // Example:
   //   This is an Alert to help manage your account ending in 9624.\n\nA $0.75 debit card transaction to SUBWAY RESTAURANT    on 08/29/2018 4:05:01 PM EDT exceeded your $0.00 set Alert limit.
   { bank: 'Chase Debit', regex: /.*(\d+.\d+) debit card transaction to ([\s\S]*) on (\d{2})\/(\d{2})\/(\d{4})/, amount_group: 1, payee_group: 2, month_group: 3, day_group: 4, year_group: 5 },
+  
+  // Discover
+  { bank: 'Discover', regex: /Merchant: (.*)[\s\S]*Amount: \$(\d.\d+)[\s\S]*Date: (\w+) (\d+), (\d{4})/, amount_group: 2, payee_group: 1, month_group: 3, day_group: 4, year_group: 5 }
 ];
 
 function parse(msg){
@@ -22,18 +25,24 @@ function parse(msg){
     const {bank, regex, amount_group, payee_group, month_group, day_group, year_group} = parser;
     
     const matches = msg.match(regex);
-    if (matches == null){
-      return null;
-    }
+    if (matches != null){
+      console.log(`Parsed as ${bank} message`);
+      const amount = matches[amount_group];
+      const payee = matches[payee_group];
+      const year = matches[year_group];
+      let month = matches[month_group];
+      const day = matches[day_group];
 
-    console.log(`Parsed as ${bank} message`);
-    const amount = matches[amount_group];
-    const payee = matches[payee_group];
-    const date = `${matches[year_group]}-${matches[month_group].padStart(2, "0")}-${matches[day_group].padStart(2, "0")}`;
-    
-    result = { date, payee, amount }; 
-    break;
-    
+      if (month.match(/[A-Za-z]/)) {
+        // Translate month name to month number (i.e. 'June' -> '6')
+        month = (new Date(`${month}-1-01`).getMonth()+1).toString();      
+      }
+
+      const date = `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
+
+      result = { date, payee, amount }; 
+      break;
+    }
   }
   return result;
 }

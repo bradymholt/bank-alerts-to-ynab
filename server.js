@@ -10,16 +10,17 @@ app.get('/', (req, res) => res.send("<!doctype html><body><a href=\"https://glit
 
 app.post("/webhook/:account_id?", async (request, response) => {
   console.log("Webhook received");
-  console.log(JSON.stringify(request.body));
   
+  const account_id = request.params.account_id;
   const body_plain = request.body.plain;
   
   try {
-    const account_id = request.params.account_id;
+    console.log(body_plain);
     const parsed = parser.parse(body_plain);
     
     if (parsed == null){
       // Send 501 Not Implemented when message cannot be parsed
+      console.log("Could not be parsed");
       response.sendStatus(501);
       return;
     }
