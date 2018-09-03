@@ -7,7 +7,7 @@ This project routes spending alert emails from your bank to YNAB so your transac
 Setup is free, easy, and should take less than 3 minutes.  You will be cloning a Glitch project to act as a webhook server, creating a free CloudMailin account which will give you an email address that will route to your webbook, and then telling your bank to send spending alerts to your CloudMailin email address.
 
 ### Glitch
-1. Click "Remix This" button on the right side of [this page](https://glitch.com/edit/#!/shiny-secure).
+1. Click "Remix This" button on the right side of [this page](https://glitch.com/edit/#!/bank-alerts-to-ynab).
 1. Edit the .env of this project and specify a [YNAB API Access Token](https://api.youneedabudget.com/#personal-access-tokens) (as long as you leave secrets in the `.env` file, [they should be safe](https://support.glitch.com/t/how-do-i-set-environment-variables/3921/2)).  It should look something like this:
 
         YNAB_ACCESS_TOKEN=e46942a2-86a6-FAKE-4931-b9a3-6c1d1c5c4b16
