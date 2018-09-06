@@ -2,9 +2,9 @@
   "//1": "describes your app and its dependencies",
   "//2": "https://docs.npmjs.com/files/package.json",
   "//3": "updating this file will download and update your packages",
-  "name": "hello-express",
+  "name": "bank-alerts-to-ynab",
   "version": "0.0.1",
-  "description": "A simple Node app built on Express, instantly up and running.",
+  "description": "This project routes spending alert emails from your bank to YNAB so your transactions appear in YNAB seconds after they occur.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"

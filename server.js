@@ -6,7 +6,13 @@ const parser = require("./parser");
 const app = express();
 app.use(bodyParser.json())
 
-app.get('/', (req, res) => res.send("<!doctype html><body><a href=\"https://glitch.com/edit/#!/shiny-secure\">README</a></body>"));
+app.get('/', (req, res) => res.send(`\
+<!doctype html><body>
+  <h1>Bank Alerts to YNAB</h1>
+  <p>This application provides a webhook to route spending alert emails from a bank to <a href="https://www.youneedabudget.com">YNAB</a> so transactions appear in YNAB seconds after they occur.</p>
+  <a href=\"https://glitch.com/edit/#!/shiny-secure\">README</a>
+</body>
+`));
 
 app.post("/webhook/:account_id?", async (request, response) => {
   console.log("Webhook received");
