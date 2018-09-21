@@ -30,7 +30,7 @@ Setup is free, easy, and should take less than 2 minutes.  You will be cloning a
 
 ### CloudMailin
 1. Go to [https://www.cloudmailin.com](https://www.cloudmailin.com) and create an account
-1. Specify your POST target as `https://awesome-app.glitch.me/webbook` (given your project name is "awesome-app") and POST Format as "JSON Format".
+1. Specify your POST target as `https://awesome-app.glitch.me/webhook` (given your project name is "awesome-app") and POST Format as "JSON Format".
 ![cloudmailin-setup](https://cdn.glitch.com/11b0ff9a-c375-4ecb-93d2-c4c09b10d589%2FImage%202018-08-30%2007-11-58.png?1535631130040)
 1. Note the new @cloudmailin.net address assigned to you (it will look something like: 
 99198c6b4ba23c34c1f7@cloudmailin.net)
